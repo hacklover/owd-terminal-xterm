@@ -1,0 +1,44 @@
+{
+  "name": "terminal-xterm",
+  "version": "2.0.0-alpha.2",
+  "license": "MIT",
+  "homepage": "https://github.com/hacklover/owd-terminal-xterm",
+  "author": {
+    "name": "hacklover",
+    "url": "https://github.com/hacklover"
+  },
+  "singleton": false,
+  "config": true,
+  "windows": [
+    {
+      "name": "WindowXterm",
+      "category": "system-tools",
+      "title": "Terminal",
+      "icon": {
+        "name": "mdi-console-line",
+        "offset": {
+          "y": -1
+        }
+      },
+      "menu": true,
+      "minimized": false,
+      "resizable": true,
+      "maximizable": true,
+      "noContentSpacing": true,
+      "size": {
+        "width": 480,
+        "height": 320
+      },
+      "position": {
+        "x": -1,
+        "y": 0,
+        "z": 0
+      }
+    }
+  ],
+  "dependencies": {
+    "xterm": "^4.9.0",
+    "xterm-addon-fit": "^0.4.0",
+    "xterm-addon-local-echo": "https://github.com/hacklover/owd-xterm-addon-local-echo"
+  }
+}

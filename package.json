@@ -1,0 +1,15 @@
+{
+  "name": "owd-terminal-xterm",
+  "version": "2.0.0-alpha.2",
+  "license": "MIT",
+  "homepage": "https://github.com/hacklover/owd-terminal-xterm",
+  "author": {
+    "name": "hacklover",
+    "url": "https://github.com/hacklover"
+  },
+  "dependencies": {
+    "xterm": "^4.9.0",
+    "xterm-addon-fit": "^0.4.0",
+    "xterm-addon-local-echo": "https://github.com/hacklover/owd-xterm-addon-local-echo"
+  }
+}
