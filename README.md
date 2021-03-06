@@ -10,10 +10,10 @@
 </p>
 
 ## Demo
-[Try it out](https://hacklover.net/client), just click on the console icon on the left menu
+[Try it out](https://hacklover.net/client), just open the terminal from the application menu
 
 ## Overview
-This terminal is based on [xterm.js](https://github.com/xtermjs/xterm.js) and includes some addons like [Xterm.js Fit](https://github.com/xtermjs/xterm.js/tree/master/addons/xterm-addon-fit) and a customized version of [Local Echo](https://github.com/wavesoft/local-echo). It's fully customizable through the config file.
+This terminal is based on [xterm.js](https://github.com/xtermjs/xterm.js) and includes some addons like [xterm.js Fit](https://github.com/xtermjs/xterm.js/tree/master/addons/xterm-addon-fit) and a custom version of [Local Echo](https://github.com/wavesoft/local-echo).
 
 ## Quick install
 - Copy the content of the `client` module folder into `owd-client/src/modules/terminal-xterm`
