@@ -13,7 +13,6 @@
   import Window from "@owd-client/core/src/components/window/Window";
 
   export default {
-    name: "WindowConsole",
     components: {Window},
     props: {
       window: Object
