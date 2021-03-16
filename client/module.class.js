@@ -22,7 +22,7 @@ export default class TerminalModule extends ModuleApp {
 
   loadCommands({store}) {
     return {
-      'test-xterm': function (t, args) {
+      'help': function (t, args) {
         t.writeln('\nHello there!\n')
       },
       'xterm': function () {

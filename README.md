@@ -27,7 +27,7 @@ OWD Client globally supports terminal commands. You can define them from any OWD
 ```js
 loadCommands({store}) {
   return {
-    'test': function (t, args) {
+    'help': function (t, args) {
       t.writeln('it works bruh')
     }
   }
@@ -37,7 +37,7 @@ loadCommands({store}) {
 ## Dependencies
 - xterm
 - xterm-addon-fit
-- xterm-addon-local-echo
+- xterm-addon-local-echo (custom)
 
 ## Compatibility
 - Open Web Desktop client v2.0.0-alpha.4
