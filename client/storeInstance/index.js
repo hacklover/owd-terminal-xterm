@@ -79,8 +79,15 @@ export default function ({ terminal }) {
             }
           )
       },
-      exec({state}, command) {
-        state.instance.exec(command)
+      focus({state}) {
+        state.instance.focus()
+        state.instance.focus()
+      },
+      clear({state}) {
+        state.instance.clear()
+      },
+      blur({state}) {
+        state.instance.blur()
       },
       fit({state}) {
         state.instanceFit.fit()

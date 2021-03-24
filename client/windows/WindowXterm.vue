@@ -3,7 +3,9 @@
     :title="window.config.title"
     :window="window"
     @open="onOpen"
-    @resize:end="onResize"
+    @blur="$store.dispatch(`${this.window.uniqueName}/blur`)"
+    @focus="$store.dispatch(`${this.window.uniqueName}/focus`)"
+    @resize:end="$store.dispatch(`${this.window.uniqueName}/fit`)"
   >
     <div :id="window.uniqueName" class="terminal" />
   </Window>
@@ -23,9 +25,6 @@
           await this.$store.dispatch(`${this.window.uniqueName}/create`, this.window.uniqueName)
           await this.$store.dispatch(`${this.window.uniqueName}/fit`)
         })
-      },
-      onResize() {
-        this.$store.dispatch(`${this.window.uniqueName}/fit`)
       }
     }
   }

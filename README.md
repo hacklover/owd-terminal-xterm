@@ -40,7 +40,7 @@ loadCommands({store}) {
 - xterm-addon-local-echo (custom)
 
 ## Compatibility
-- Open Web Desktop client v2.0.0-alpha.4
+- Open Web Desktop client v2.0.0-alpha.6
 
 ## License
 This project is released under the [MIT License](LICENSE)
