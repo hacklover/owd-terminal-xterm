@@ -23,7 +23,7 @@ export default class TerminalModule extends ModuleApp {
   loadCommands({store}) {
     return {
       'help': function (t, args) {
-        t.writeln('\nHello there!\n')
+        t.writeln('\r\n\r\nHello there!')
       },
       'xterm': function () {
         store.dispatch('core/window/windowCreate', 'WindowXterm');
