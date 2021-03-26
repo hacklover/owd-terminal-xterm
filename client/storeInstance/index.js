@@ -81,7 +81,6 @@ export default function ({ terminal }) {
       },
       focus({state}) {
         state.instance.focus()
-        state.instance.focus()
       },
       clear({state}) {
         state.instance.clear()
