@@ -1,5 +1,5 @@
 {
-  "greeting": "{app-name} console ‒ Version {app-version}\nCopyright (c) {app-year} {app-website}\n\nWelcome, guest. Type {default-command} to list available commands\n",
+  "greeting": "{app-name} console ‒ Version {app-version}\r\nCopyright (c) {app-year} {app-website}\r\n\r\nWelcome, guest. Type {default-command} to list available commands\r\n",
   "options": {
     "prompt": ">",
     "rendererType": "dom",
