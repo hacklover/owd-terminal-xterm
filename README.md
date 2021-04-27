@@ -37,6 +37,7 @@ loadCommands({store}) {
 ## Dependencies
 - xterm
 - xterm-addon-fit
+- xterm-addon-web-links
 - xterm-addon-local-echo (custom)
 
 ## Compatibility

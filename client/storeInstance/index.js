@@ -1,5 +1,6 @@
 import { Terminal } from 'xterm';
 import { FitAddon } from 'xterm-addon-fit';
+import { WebLinksAddon } from 'xterm-addon-web-links';
 import LocalEchoController from 'xterm-addon-local-echo';
 
 export default function ({ terminal }) {
