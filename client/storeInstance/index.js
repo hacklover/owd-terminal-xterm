@@ -5,17 +5,24 @@ import LocalEchoController from 'xterm-addon-local-echo';
 export default function ({ terminal }) {
   return {
     state: {
+      window: null,
       instance: null,
       instanceFit: null,
       instanceLocalEcho: null
     },
 
     mutations: {
+      SET_WINDOW(state, window) {
+        state.window = window
+      },
       SET_INSTANCE(state, instance) {
         // map execCommand method
         instance.execCommand = (command, args) => {
           return terminal.execCommand(state.instance, command, args)
         }
+
+        // assign window to xterm instance
+        instance.window = state.window
 
         state.instance = instance
       },
@@ -28,7 +35,9 @@ export default function ({ terminal }) {
     },
 
     actions: {
-      async create({commit,dispatch,rootState}, consoleId) {
+      async create({commit,dispatch,rootState}, window) {
+        const consoleId = window.uniqueName
+
         const xtermOptions = rootState['terminal-xterm'].options
         const xterm = new Terminal(xtermOptions)
 
@@ -40,9 +49,15 @@ export default function ({ terminal }) {
           const xtermFitAddon = new FitAddon()
           xterm.loadAddon(xtermFitAddon)
 
+          // web links addon
+          xterm.loadAddon(new WebLinksAddon())
+
           // local echo addon
           const xtermLocalEcho = new LocalEchoController()
           xterm.loadAddon(xtermLocalEcho)
+
+          // set window
+          commit('SET_WINDOW', window.instance)
 
           // set plugin instances
           commit('SET_INSTANCE_FIT', xtermFitAddon)
@@ -53,9 +68,12 @@ export default function ({ terminal }) {
 
           await dispatch('reset')
         }
-
       },
       destroy({state}) {
+        if (!state.instance) {
+          return console.error('Unable to destroy terminal')
+        }
+
         state.instance.destroy()
       },
       async read({state, rootState}) {
@@ -80,12 +98,17 @@ export default function ({ terminal }) {
           )
       },
       focus({state}) {
+        if (!state.instance) {
+          return console.error('Unable to focus terminal')
+        }
+
         state.instance.focus()
       },
-      clear({state}) {
-        state.instance.clear()
-      },
       blur({state}) {
+        if (!state.instance) {
+          return console.error('Unable to blur terminal')
+        }
+
         state.instance.blur()
       },
       fit({state}) {
@@ -97,7 +120,7 @@ export default function ({ terminal }) {
         }
 
         state.instance.reset()
-        state.instance.writeln(rootGetters['terminal-xterm/greeting'].replace(/\n/g, '\n\r'))
+        state.instance.writeln(rootGetters['terminal-xterm/greeting'])
 
         await dispatch('read')
       }
