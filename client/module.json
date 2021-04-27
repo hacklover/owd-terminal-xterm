@@ -12,12 +12,12 @@
   "windows": [
     {
       "name": "WindowXterm",
-      "category": "system-tools",
+      "category": "utilities",
       "title": "Terminal",
       "icon": {
         "name": "mdi-console-line",
         "offset": {
-          "y": -3
+          "y": -1
         }
       },
       "menu": true,
