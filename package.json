@@ -10,6 +10,7 @@
   "dependencies": {
     "xterm": "^4.9.0",
     "xterm-addon-fit": "^0.4.0",
+    "xterm-addon-web-links": "^0.4.0",
     "xterm-addon-local-echo": "https://github.com/hacklover/owd-xterm-addon-local-echo"
   }
 }
