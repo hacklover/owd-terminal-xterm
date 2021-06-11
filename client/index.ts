@@ -11,13 +11,6 @@ export default class TerminalModule extends ModuleApp {
   loadModule() {
     return {
       name: "terminal-xterm",
-      version: "2.0.0-alpha",
-      license: "MIT",
-      homepage: "https://github.com/hacklover/owd-terminal-xterm",
-      author: {
-        name: "hacklover",
-        url: "https://github.com/hacklover"
-      },
       singleton: false,
       config: terminalConfig,
       windows: [
