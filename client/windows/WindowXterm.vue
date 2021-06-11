@@ -1,74 +1,73 @@
 <template>
   <Window
-      :title="window.config.title"
-      :window="window"
+      :window="props.window"
       @open="onOpen"
       @blur="terminalBlur"
       @focus="terminalFocus"
       @resize:end="terminalFit"
   >
-    <div :id="window.uniqueName" class="terminal" />
+    <div :id="props.window.uniqueName" class="terminal" />
   </Window>
 </template>
 
-<script>
-import Window from "@owd-client/core/src/components/window/Window";
+<script setup>
+import Window from "@owd-client/core/src/components/window/app/WindowApp.vue";
+import {defineProps, nextTick, ref} from "vue";
+import {useStore} from "vuex";
 
-export default {
-  components: {Window},
-  props: {
-    window: Object
-  },
-  data() {
-    return {
-      terminalMounted: false,
-      blurOnMounted: false,
-      focusOnMounted: false,
-      resizeOnMounted: false
+const props = defineProps({
+  window: Object
+})
+
+const store = useStore()
+
+const terminalMounted = ref(false)
+const blurOnMounted = ref(false)
+const focusOnMounted = ref(false)
+const resizeOnMounted = ref(false)
+
+async function onOpen() {
+  nextTick(async () => {
+    await store.dispatch(`${props.window.uniqueName}/create`, props.window)
+    await store.dispatch(`${props.window.uniqueName}/fit`)
+
+    if (!terminalMounted.value && blurOnMounted.value) {
+      store.dispatch(`${props.window.uniqueName}/blur`)
     }
-  },
-  methods: {
-    async onOpen() {
-      this.$nextTick(async () => {
-        await this.$store.dispatch(`${this.window.uniqueName}/create`, this.window)
-        await this.$store.dispatch(`${this.window.uniqueName}/fit`)
 
-        if (!this.terminalMounted && this.blurOnMounted) {
-          this.$store.dispatch(`${this.window.uniqueName}/blur`)
-        }
-
-        if (!this.terminalMounted && this.focusOnMounted) {
-          this.$store.dispatch(`${this.window.uniqueName}/focus`)
-        }
-
-        if (!this.terminalMounted && this.resizeOnMounted) {
-          this.$store.dispatch(`${this.window.uniqueName}/fit`)
-        }
-
-        this.terminalMounted = true
-      })
-    },
-    terminalBlur() {
-      if (this.terminalMounted) {
-        this.$store.dispatch(`${this.window.uniqueName}/blur`)
-      } else {
-        this.blurOnMounted = true
-      }
-    },
-    terminalFocus() {
-      if (this.terminalMounted) {
-        this.$store.dispatch(`${this.window.uniqueName}/focus`)
-      } else {
-        this.focusOnMounted = true
-      }
-    },
-    terminalFit() {
-      if (this.terminalMounted) {
-        this.$store.dispatch(`${this.window.uniqueName}/fit`)
-      } else {
-        this.resizeOnMounted = true
-      }
+    if (!terminalMounted.value && focusOnMounted.value) {
+      store.dispatch(`${props.window.uniqueName}/focus`)
     }
+
+    if (!terminalMounted.value && resizeOnMounted.value) {
+      store.dispatch(`${props.window.uniqueName}/fit`)
+    }
+
+    terminalMounted.value = true
+  })
+}
+
+function terminalBlur() {
+  if (terminalMounted.value) {
+    store.dispatch(`${props.window.uniqueName}/blur`)
+  } else {
+    blurOnMounted.value = true
+  }
+}
+
+function terminalFocus() {
+  if (terminalMounted.value) {
+    store.dispatch(`${props.window.uniqueName}/focus`)
+  } else {
+    focusOnMounted.value = true
+  }
+}
+
+function terminalFit() {
+  if (terminalMounted.value) {
+    store.dispatch(`${props.window.uniqueName}/fit`)
+  } else {
+    resizeOnMounted.value = true
   }
 }
 </script>

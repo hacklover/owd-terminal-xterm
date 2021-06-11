@@ -32,7 +32,7 @@ OWD Client globally supports terminal commands. You can define them from any OWD
 loadCommands({store}) {
   return {
     'help': function (t, args) {
-      t.writeln('it works bruh')
+      t.writeln('\r\n\r\nHello there!')
     }
   }
 }
@@ -42,10 +42,10 @@ loadCommands({store}) {
 - xterm
 - xterm-addon-fit
 - xterm-addon-web-links
-- xterm-addon-local-echo (custom)
+- hacklover/xterm-addon-local-echo
 
 ## Compatibility
-- Open Web Desktop client v2.0.0-alpha.6
+- Open Web Desktop client v2.0.0-beta
 
 ## License
 This project is released under the [MIT License](LICENSE)

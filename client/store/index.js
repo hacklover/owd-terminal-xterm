@@ -1,7 +1,8 @@
 export default {
   state: {
     greeting: '',
-    options: {}
+    options: {},
+    listAllCommandsInConsoleLog: false
   },
 
   getters: {
