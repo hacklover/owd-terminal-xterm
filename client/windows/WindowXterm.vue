@@ -1,5 +1,5 @@
 <template>
-  <Window
+  <WindowApp
       :window="props.window"
       @open="onOpen"
       @blur="terminalBlur"
@@ -7,11 +7,10 @@
       @resize:end="terminalFit"
   >
     <div :id="props.window.uniqueName" class="terminal" />
-  </Window>
+  </WindowApp>
 </template>
 
 <script setup>
-import Window from "@owd-client/core/src/components/window/app/WindowApp.vue";
 import {defineProps, nextTick, ref} from "vue";
 import {useStore} from "vuex";
 
