@@ -53,10 +53,10 @@ This terminal is based on [xterm.js](https://github.com/xtermjs/xterm.js) and in
 - Copy the content of the [client/config](https://github.com/hacklover/owd-app-terminal-xterm/tree/master/client/config) folder into `owd-client/config`
 
 ## Add commands
-OWD Client globally supports terminal commands. You can define them from any OWD module by adding the method `loadCommands()` to the `module.class.js` file like this:
+OWD Client supports terminal commands. You can define them from any OWD module by adding the `setupCommands()` method to the `index.ts` file like this:
 
 ```js
-loadCommands({store}) {
+setupCommands({store}) {
   return {
     'help': function (t, args) {
       t.writeln('\r\n\r\nHello there!')
