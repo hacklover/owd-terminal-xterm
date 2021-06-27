@@ -8,7 +8,7 @@ import WindowXterm from './windows/WindowXterm.vue'
 import('xterm/css/xterm.css')
 
 export default class TerminalModule extends ModuleApp {
-  loadModule() {
+  setup() {
     return {
       name: "terminal-xterm",
       singleton: false,
@@ -46,15 +46,15 @@ export default class TerminalModule extends ModuleApp {
     }
   }
 
-  loadStore() {
+  setupStore() {
     return terminalStore
   }
 
-  loadStoreInstance(context) {
+  setupStoreInstance(context) {
     return terminalStoreInstance(context)
   }
 
-  loadCommands({store}) {
+  setupCommands({store}) {
     return {
       /*
       'help': function (t, args) {
