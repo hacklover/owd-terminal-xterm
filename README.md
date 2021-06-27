@@ -23,16 +23,16 @@ This terminal is based on [xterm.js](https://github.com/xtermjs/xterm.js) and in
 - Move to your client folder, then
   ```
   # Install this module with Npm
-  npm install hacklover/owd-app-terminal-xterm
+  npm install https://github.com/hacklover/owd-app-terminal-xterm
   
   # Or using Yarn
-  yarn add hacklover/owd-app-terminal-xterm
+  yarn add https://github.com/hacklover/owd-app-terminal-xterm
   ```
 - Define this module in `owd-client/client.extensions.ts`
   ```js
   import AboutModule from "@owd-client/core/src/modules/app/about";
   import DebugModule from "@owd-client/core/src/modules/app/debug";
-  import TerminalXtermModule from "hacklover/owd-app-terminal-xterm/client";
+  import TerminalXtermModule from "owd-app-terminal-xterm/client";
 
   export default {
     app: {
