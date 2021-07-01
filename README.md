@@ -2,7 +2,7 @@
 > A terminal for your Open Web Desktop client
 
 <p>
-    <img src="media/demo.png" alt="OWD Terminal Xterm module demo" />
+    <img src="media/demo.png" alt="OWD Terminal Xterm.js module" />
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 [Try it out](https://hacklover.net/client), just open the terminal from the application menu
 
 ## Overview
-This terminal is based on [xterm.js](https://github.com/xtermjs/xterm.js) and includes some addons like [xterm.js Fit](https://github.com/xtermjs/xterm.js/tree/master/addons/xterm-addon-fit) and a custom version of [Local Echo](https://github.com/wavesoft/local-echo).
+This terminal is based on [xterm.js](https://github.com/xtermjs/xterm.js) + some addons.
 
 ## Quick install
 - Move to your client folder, then
@@ -44,7 +44,7 @@ This terminal is based on [xterm.js](https://github.com/xtermjs/xterm.js) and in
     },
     ...
   ```
-- Add this code to `owd-client/vite.config.ts`
+- Add this to `owd-client/vite.config.ts`
   ```
   optimizeDeps: {
     include: ['md5']
